@@ -2,7 +2,7 @@ package com.techeevator.model;
 
 public class SurveyResults {
 	private int surveyId;
-	private int parkCode;
+	private String parkCode;
 	private String emailAddress;
 	private String state;
 	private String activityLevel;
@@ -14,10 +14,10 @@ public class SurveyResults {
 	public void setSurveyId(int surveyId) {
 		this.surveyId = surveyId;
 	}
-	public int getParkCode() {
+	public String getParkCode() {
 		return parkCode;
 	}
-	public void setParkCode(int parkCode) {
+	public void setParkCode(String parkCode) {
 		this.parkCode = parkCode;
 	}
 	public String getEmailAddress() {

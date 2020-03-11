@@ -1,5 +1,7 @@
 package com.techelevator.npgeek.DAO;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +14,7 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
 import com.techeevator.model.Weather;
-import com.techelevator.Campground;
+
 
 @Component
 public class JDBCWeatherDAO implements WeatherDAO{
@@ -29,24 +31,25 @@ public class JDBCWeatherDAO implements WeatherDAO{
 		ArrayList<Weather>weatherList = new ArrayList<>();
 		String sqlGetWeatherByParkCode = "SELECT * FROM weather";
 		
-		SqlRowSet resuslts = jdbcTemplate.queryForRowSet(sqlGetWeatherByParkCode);
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetWeatherByParkCode);
 		while (results.next()) {
-			Weather allWeather = mapRowToWeather()
+			Weather allWeather = mapRowToWeather(results);
+			weatherList.add(allWeather);
+		}
 		
-		return null;
+		return weatherList;
 	}
-	
-	ArrayList<Campground> campgroundList = new ArrayList<>();
-	String sqlGetAllCampgrounds = "SELECT campground_id, park_id, name, open_from_mm, open_to_mm, daily_fee " + "FROM campground";
-
-	SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetAllCampgrounds);
-	while (results.next()) {
-		Campground allCampgrounds = mapRowToCampground(results);
-		campgroundList.add(allCampgrounds);
-
+	private Weather mapRowToWeather(SqlRowSet results) {
+		Weather allWeather = new Weather();
+		allWeather.setParkCode(results.getString("parkcode"));
+		allWeather.setFiveDayForecastValue(results.getInt("fivedayforecastvalue"));
+		allWeather.setLow(results.getInt("low"));
+		allWeather.setHigh(results.getInt("high"));
+		allWeather.setForecast(results.getString("forecast"));
+		
+		return allWeather;
 	}
-
-	return campgroundList;
-}
+		
+		
 }
 

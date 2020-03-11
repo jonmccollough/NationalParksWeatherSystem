@@ -6,7 +6,9 @@
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
 
+<section>
 WELCOME TO THE WICKEDEST PARKS BRO!
 
+</section>
 
-<%-- <c:import url="/WEB-INF/jsp/footer.jsp" /> --%>
+<c:import url="/WEB-INF/jsp/footer.jsp" />

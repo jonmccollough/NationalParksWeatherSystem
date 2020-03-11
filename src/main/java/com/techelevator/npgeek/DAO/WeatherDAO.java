@@ -1,10 +1,11 @@
 package com.techelevator.npgeek.DAO;
 
-public class WeatherDAO {
+import java.util.List;
+
+import com.techeevator.model.Weather;
+
+public interface WeatherDAO {
 	
-	private String getWeather() {
-		return null;
-		
-	}
+	public List<Weather> getWeatherByParkCode();
 
 }

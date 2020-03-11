@@ -1,21 +1,23 @@
-package com.techelevator.npgeek;
+package com.techeevator.model;
 
-public class Survey {
+public class SurveyResults {
 	private int surveyId;
-	private int parkCode;
+	private String parkCode;
 	private String emailAddress;
 	private String state;
 	private String activityLevel;
+	
+	
 	public int getSurveyId() {
 		return surveyId;
 	}
 	public void setSurveyId(int surveyId) {
 		this.surveyId = surveyId;
 	}
-	public int getParkCode() {
+	public String getParkCode() {
 		return parkCode;
 	}
-	public void setParkCode(int parkCode) {
+	public void setParkCode(String parkCode) {
 		this.parkCode = parkCode;
 	}
 	public String getEmailAddress() {

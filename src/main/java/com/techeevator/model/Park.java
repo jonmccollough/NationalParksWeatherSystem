@@ -1,13 +1,13 @@
-package com.techelevator.npgeek;
+package com.techeevator.model;
 
-public class Detail {
-	
+public class Park {
+	//PARK
 	private String parkCode;
 	private String parkname;
 	private String state;
 	private int acreage;
 	private int elevationInFeet;
-	private int milesOfTrail;
+	private float milesOfTrail;
 	private int numberOfCampsites;
 	private String climate;
 	private int yearFounded;
@@ -18,11 +18,6 @@ public class Detail {
 	private int entryFee;
 	private int numberOfAnimalSpecies;
 	
-	
-	private int fiveDayForecastValue;
-	private int low;
-	private int high;
-	private String foreCast;
 	
 	
 	
@@ -57,10 +52,10 @@ public class Detail {
 	public void setElevationInFeet(int elevationInFeet) {
 		this.elevationInFeet = elevationInFeet;
 	}
-	public int getMilesOfTrail() {
+	public float getMilesOfTrail() {
 		return milesOfTrail;
 	}
-	public void setMilesOfTrail(int milesOfTrail) {
+	public void setMilesOfTrail(float milesOfTrail) {
 		this.milesOfTrail = milesOfTrail;
 	}
 	public int getNumberOfCampsites() {
@@ -118,31 +113,6 @@ public class Detail {
 		this.numberOfAnimalSpecies = numberOfAnimalSpecies;
 	}
 	
-	//Weather getters and setters
-	public int getFiveDayForecastValue() {
-		return fiveDayForecastValue;
-	}
-	public void setFiveDayForecastValue(int fiveDayForecastValue) {
-		this.fiveDayForecastValue = fiveDayForecastValue;
-	}
-	public int getLow() {
-		return low;
-	}
-	public void setLow(int low) {
-		this.low = low;
-	}
-	public int getHigh() {
-		return high;
-	}
-	public void setHigh(int high) {
-		this.high = high;
-	}
-	public String getForeCast() {
-		return foreCast;
-	}
-	public void setForeCast(String foreCast) {
-		this.foreCast = foreCast;
-	}
 	
 	
 	

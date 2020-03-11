@@ -1,6 +1,6 @@
-package com.techelevator.npgeek;
+package com.techeevator.model;
 
-public class Survey {
+public class SurveyResults {
 	private int surveyId;
 	private int parkCode;
 	private String emailAddress;

@@ -1,4 +1,4 @@
-package com.techelevator.npgeek;
+package com.techeevator.model;
 
 public class Home {
 	

@@ -1,7 +1,7 @@
 package com.techelevator.npgeek;
 
 public class Detail {
-	
+	//PARK
 	private String parkCode;
 	private String parkname;
 	private String state;
@@ -18,7 +18,7 @@ public class Detail {
 	private int entryFee;
 	private int numberOfAnimalSpecies;
 	
-	
+	//WEATHER
 	private int fiveDayForecastValue;
 	private int low;
 	private int high;

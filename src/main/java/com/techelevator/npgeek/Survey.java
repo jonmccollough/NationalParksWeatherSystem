@@ -6,6 +6,8 @@ public class Survey {
 	private String emailAddress;
 	private String state;
 	private String activityLevel;
+	
+	
 	public int getSurveyId() {
 		return surveyId;
 	}

@@ -1,15 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <title>NPWS - Home Page</title>
-</head>
-<body>
+
+<c:import url="/WEB-INF/jsp/header.jsp" />
 
 
+WELCOME TO THE WICKEDEST PARKS BRO!
 
 
-</body>
-</html>
+<%-- <c:import url="/WEB-INF/jsp/footer.jsp" /> --%>

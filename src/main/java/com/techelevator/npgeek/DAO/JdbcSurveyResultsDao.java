@@ -11,18 +11,18 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
-import com.techelevator.classes.CampGround;
-import com.techelevator.npgeek.SurveyResults;
 
-public class JdbcNpGeekDao implements SurveyDAO {
+import com.techeevator.model.SurveyResults;
+@Component
+public class JdbcSurveyResultsDao implements SurveyDAO {
 	private JdbcTemplate jdbcTemplate;
 	private SurveyDAO surveryDao;
 
 	@Autowired
-	public JdbcNpGeekDao(DataSource datasource) {
-		this.jdbcTemplate = new JdbcTemplate();
+	public JdbcSurveyResultsDao(BasicDataSource datasource) {
+		this.jdbcTemplate = new JdbcTemplate(datasource); 
 	}
-
+	
 	@Override
 	public List<SurveyResults> getAllSurvey() {
 		List<SurveyResults> surveyResults = new ArrayList<>();
@@ -34,14 +34,16 @@ public class JdbcNpGeekDao implements SurveyDAO {
 			
 			surveyResults.add(survey);
 		}
-		return null;
+		return surveyResults;
 	}
 
 	public SurveyResults mapRowToSurvey(SqlRowSet results) {
 		SurveyResults survey = new SurveyResults();
-		survey.setP
+		survey.setSurveyId(results.getInt("surveyId"));
 		survey.setParkCode(results.getString("parkcode"));
-		survey.setParkName(results.getString("parkname"));
+		survey.setEmailAddress(results.getString("emailaddress"));
+		survey.setState(results.getString("state"));
+		survey.setActivityLevel(results.getString("activitylevel"));
 		
 		return survey;
 	}

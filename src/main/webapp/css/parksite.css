@@ -1,20 +1,22 @@
 
 body {
-	background-color: #000000;
+	background-color: #c6f3d3;
 	font-family: sans-serif;
+	margin-left: 20px;
+	margin-right: 20px;
 }
 
 header {
-	margin: 25px;
+	margin: 5px;
 }
 
 header h1 {
 	font-size: 21pt;
-	color: #FFFFFF;
+	color: #000000;
 }
 
 header p {
-	color: #FFFFFF;
+	color: #000000;
 	/*font-size: 12pt;*/
 }
 
@@ -23,17 +25,18 @@ header img {
 }
 
 nav {
-	margin-top: 50px;
-	margin-bottom: 50px;
+	margin-top: 5px;
+	margin-bottom: 70px;
+	postion: center;
 }
 
 nav h2 {
-	color: #FFFFFF;
+	color: #000000;
 	padding-left: 60px;
 }
 
 nav p {
-	color: #FFFFFF;
+	color: #000000;
 	font-style: italic;
 	padding-left: 60px;
 }
@@ -47,7 +50,7 @@ li {
 }
 
 li a {
-	color: #0D118B;
+	color: white;
 	text-decoration: none;
 	/*font-size: 20pt;*/
 	list-style: none;
@@ -57,12 +60,13 @@ li a {
 
 nav ul {
 	width: 100%;
+	margin: 10px;
 }
 
 nav ul li {
 	float: left;
 	margin-right: 20px;
-	background-color: white;
+	background-color: darkgreen;
 	border-radius: 8px;
 	list-style: none;
 	text-align: center;
@@ -79,18 +83,18 @@ li a:hover {
 }
 
 section h1 {
-	color: #FFFFFF;
+	color: #000000;
 	font-size: 21pt;
 	/* padding-left: 120px; */
 }
 
 section h2 {
-	color: #FFFFFF;
+	color: #000000;
 	font-size: 18pt;
 }
 
 section p {
-	color: #FFFFFF;
+	color: #000000;
 	/*font-size: 14pt;*/
 	width: 80%;
 	margin: 25px;
@@ -117,7 +121,7 @@ section img {
 }
 
 #main-content h2 {
-	padding: 14px;
+	padding: 4px;
 	color: black;
 }
 
@@ -132,6 +136,7 @@ section img {
 
 form div {
 	padding: 10px 0px;
+	font-size: 15px;
 }
 
 form div label {
@@ -149,6 +154,13 @@ form button {
 
 input[type=text], input[type=datetime], textarea {
 	width: 300px;
+}
+
+#submit {
+    width: 200px;  
+    height: 25px;
+    padding-left: 50px;
+    font-size: 
 }
 
 th, td {
@@ -193,6 +205,6 @@ section.centeredPanel p {
 }
 
 .copyright {
-	color: white;
+	color: black;
 	text-align: center;
 }

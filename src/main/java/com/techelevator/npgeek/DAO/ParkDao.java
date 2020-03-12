@@ -6,6 +6,8 @@ import java.util.List;
 import com.techeevator.model.Park;
 
 public interface ParkDao {
-	List<Park> getParkByParkCode();
 	
+	public Park getParkByParkCode(String parkCode);
+	
+	public List<Park> getAllParks();
 }

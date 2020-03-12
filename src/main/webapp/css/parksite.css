@@ -156,9 +156,6 @@ input[type=text], input[type=datetime], textarea {
 	width: 300px;
 }
 
-select{
-	font-size: 14px;
-}
 
 #submit {
     width: 200px;  

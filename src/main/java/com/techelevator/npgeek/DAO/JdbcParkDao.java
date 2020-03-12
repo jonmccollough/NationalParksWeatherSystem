@@ -21,16 +21,26 @@ public class JdbcParkDao implements ParkDao  {
 	}
 	
 	@Override
-	public List<Park> getParkByParkCode() {
-		List<Park> parkList = new ArrayList<>();
-		
-		String sqlGetAllParks = "SELECT * FROM park";
-		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetAllParks);
-		while(results.next()) {
-			Park getParkList = mapRowToPark(results);
-			parkList.add(getParkList);
+	public Park getParkByParkCode(String parkcode) {
+		Park park = new Park();
+		String sqlGetAllParks = "SELECT * FROM park WHERE parkcode = ?";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetAllParks, parkcode);
+		if(results.next()) {
+			park = mapRowToPark(results);
 		}
-		return parkList;
+		return park;
+	}
+	
+	@Override
+	public ArrayList<Park> getAllParks() {
+		String sqlFindAllParks = "SELECT * FROM park ORDER BY parkname";
+		ArrayList<Park> parksList = new ArrayList<Park>();
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlFindAllParks);
+		while(results.next()) {
+			Park park = mapRowToPark(results);
+			parksList.add(park);
+		}
+		return parksList;
 	}
 
 	public Park mapRowToPark(SqlRowSet results) {
@@ -44,17 +54,14 @@ public class JdbcParkDao implements ParkDao  {
 		getParks.setNumberOfCampsites(results.getInt("numberofcampsites"));
 		getParks.setClimate(results.getString("climate"));
 		getParks.setYearFounded(results.getInt("yearfounded"));
-		getParks.setAnnualVisitorCount(results.getInt("annualvisitors"));
+		getParks.setAnnualVisitorCount(results.getInt("annualvisitorcount"));
 		getParks.setInspirationalQuote(results.getString("inspirationalquote"));
-		getParks.setInspirationalQuoteSource(results.getString("inspirationalquotessource"));
+		getParks.setInspirationalQuoteSource(results.getString("inspirationalquote"));
 		getParks.setParkDescription(results.getString("parkdescription"));
 		getParks.setEntryFee(results.getInt("entryfee"));
-		getParks.setNumberOfAnimalSpecies(results.getInt("numberofanimalsspecies"));
+		getParks.setNumberOfAnimalSpecies(results.getInt("numberofanimalspecies"));
 		
 		return getParks;
 	}
-
-
-
 	
 }

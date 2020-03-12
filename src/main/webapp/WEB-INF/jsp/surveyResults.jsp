@@ -11,7 +11,23 @@
 </head>
 <body>
 
-The answer is yes obviously.
+
+<section>
+	<h1 id="surveyResultLeaders">The Top Parks</h1>
+	<table>
+	
+	<c:forEach items="${park}" var="parkcode">
+		
+		<c:out value="${park.parkname}" />
+		
+	</c:forEach>
+	
+	</table>
+
+</section>
+
+
+!!The survey results page is displaying - its just empty right now!!
 
 </body>
 </html>

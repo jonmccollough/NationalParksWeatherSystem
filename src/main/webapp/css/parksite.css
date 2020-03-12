@@ -156,6 +156,10 @@ input[type=text], input[type=datetime], textarea {
 	width: 300px;
 }
 
+weather-image {
+  size: 100%;
+}
+
 #submit {
     width: 200px;  
     height: 25px;

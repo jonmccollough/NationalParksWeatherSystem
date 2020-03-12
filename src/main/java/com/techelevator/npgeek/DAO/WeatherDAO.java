@@ -6,6 +6,6 @@ import com.techeevator.model.Weather;
 
 public interface WeatherDAO {
 	
-	public List<Weather> getWeatherByParkCode();
+	public List<Weather> getWeatherByParkCode(String parkCode);
 
 }

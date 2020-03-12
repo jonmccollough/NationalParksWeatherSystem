@@ -22,8 +22,8 @@ public class NPWSController {
 		return "survey";
 	}
 	
-	@RequestMapping("/surveyResults")
-	public String showSurveryResultsPage() {
-		return "surveyResults";
-	}
+//	@RequestMapping("/surveyResults")
+//	public String showSurveryResultsPage() {
+//		return "surveyResults";
+//	}
 }

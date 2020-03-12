@@ -156,11 +156,19 @@ input[type=text], input[type=datetime], textarea {
 	width: 300px;
 }
 
+select{
+	font-size: 14px;
+}
+
 #submit {
     width: 200px;  
     height: 25px;
     padding-left: 50px;
-    font-size: 
+    font-size: 20px;
+}
+
+.error {
+	color: red;
 }
 
 th, td {

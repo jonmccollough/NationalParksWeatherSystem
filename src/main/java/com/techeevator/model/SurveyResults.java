@@ -1,12 +1,18 @@
 package com.techeevator.model;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
+
 public class SurveyResults {
+	
 	private int surveyId;
 	private String parkCode;
-	private String emailAddress;
 	private String state;
 	private String activityLevel;
 	
+	@NotBlank(message="Email is required")
+	@Email(message= "Email must be a valid email address")
+	private String emailAddress;
 	
 	public int getSurveyId() {
 		return surveyId;
@@ -38,7 +44,5 @@ public class SurveyResults {
 	public void setActivityLevel(String activityLevel) {
 		this.activityLevel = activityLevel;
 	}
-	
-	
 
 }

@@ -16,8 +16,7 @@ import com.techeevator.model.SurveyResults;
 @Component
 public class JdbcSurveyResultsDao implements SurveyDAO {
 	private JdbcTemplate jdbcTemplate;
-	private SurveyDAO surveryDao;
-
+	
 	@Autowired
 	public JdbcSurveyResultsDao(BasicDataSource datasource) {
 		this.jdbcTemplate = new JdbcTemplate(datasource); 
@@ -30,21 +29,31 @@ public class JdbcSurveyResultsDao implements SurveyDAO {
 		String sqlGetAllSurvey = "SELECT * FROM survey_result";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetAllSurvey);
 		while(results.next()) {
-			SurveyResults survey = mapRowToSurvey(results);
-			
+			SurveyResults survey = new SurveyResults();
+			survey.setParkCode(results.getString("parkcode"));
+			survey.setEmailAddress(results.getString("emailaddress"));
+			survey.setState(results.getString("state"));
+			survey.setActivityLevel(results.getString("activitylevel"));
 			surveyResults.add(survey);
 		}
 		return surveyResults;
 	}
 
-	public SurveyResults mapRowToSurvey(SqlRowSet results) {
-		SurveyResults survey = new SurveyResults();
-		survey.setSurveyId(results.getInt("surveyId"));
-		survey.setParkCode(results.getString("parkcode"));
-		survey.setEmailAddress(results.getString("emailaddress"));
-		survey.setState(results.getString("state"));
-		survey.setActivityLevel(results.getString("activitylevel"));
-		
-		return survey;
+	@Override
+	public void addSurvey(SurveyResults thisSurvey) {
+		String sqlSurvey = "INSERT INTO survey_result (parkcode, emailaddress, state, activitylevel) " +
+							"VALUES (?, ?, ?, ?)";
+		jdbcTemplate.update(sqlSurvey, thisSurvey.getParkCode(), thisSurvey.getEmailAddress(), thisSurvey.getState(), thisSurvey.getActivityLevel());
 	}
+	
+//	public SurveyResults mapRowToSurvey(SqlRowSet results) {
+//		SurveyResults survey = new SurveyResults();
+//		survey.setParkCode(results.getString("parkcode"));
+//		survey.setEmailAddress(results.getString("emailaddress"));
+//		survey.setState(results.getString("state"));
+//		survey.setActivityLevel(results.getString("activitylevel"));
+//		
+//		return survey;
+//	}
+	
 }

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <html>
 <head>
@@ -8,13 +9,12 @@
 <meta charset="UTF-8">
 <title>Survey</title>
 </head>
-<body>
 
-	<form method="GET" action="${formAction}" style="background: white;padding-left: 30px;padding-top:1px;">
+	<form:form method="POST" action="survey" modelAttribute="survey" style="background: white;padding-left: 30px;padding-top:1px;">
 		<h2>Favorite Parks Survey</h2>
 		<div class="formInputGroup">
 			<label for="FavoritePark">Your favorite national park:</label> 
-			<select name="FavoritePark" id="FavoritePark">
+			<form:select path="parkCode" name="FavoritePark" id="FavoritePark">
 				<option value="CVNP">Cuyahoga Valley National Park</option>
 				<option value="ENP">Everglades National Park</option>
 				<option value="GCNP">Grand Canyon National Park</option>
@@ -25,16 +25,17 @@
 				<option value="RMNP">Rocky Mountain National Park</option>
 				<option value="YNP">Yellowstone National Park</option>
 				<option value="YNP2">Yosemite National Park</option>
-			</select>
+			</form:select>
 		</div>
 
 		<div class="form">
-			<label for="email">Email:</label> <input type="email" name="email"
-				id="email" />
+			<form:label path="emailAddress">Email:</form:label> 
+			<form:input path="emailAddress" name="email" id="email" />
+			<form:errors path="emailAddress" cssClass="error"/>
 		</div>
 		<div>
 			<label for="State">State:</label> 
-			<select>
+			<form:select path="state">
 				<option value="AL">Alabama</option>
 				<option value="AK">Alaska</option>
 				<option value="AZ">Arizona</option>
@@ -86,7 +87,7 @@
 				<option value="WV">West Virginia</option>
 				<option value="WI">Wisconsin</option>
 				<option value="WY">Wyoming</option>
-			</select>
+			</form:select>
 		</div>
 		
 		<div class="formInputGroup">
@@ -103,10 +104,8 @@
 			<input class="formSubmitButton" type="submit" value="Submit Survey"
 				id="submit" />
 		</div>
-	</form>
+	</form:form>
 
-
-</body>
 </html>
 
 <c:import url="/WEB-INF/jsp/footer.jsp" />

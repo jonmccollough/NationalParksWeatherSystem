@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
 
 
@@ -17,6 +18,13 @@
 [IMAGINE A BEAUTIFUL PARK PIC HERE]
 <br>
 HERE WOULD BE DETAILS FOR THE PARK IF I GOT TO THE IMPORT PART, BUT I HAVEN"T YET
+
+<section id = "park details">
+<img src="img/parks/<c:out value = "${fn:toLowerCase(codeId.parkCode)}"/>.jpg" />
+</section>
+
+
+
 
 <section id="weather">
 
@@ -37,7 +45,7 @@ HERE WOULD BE DETAILS FOR THE PARK IF I GOT TO THE IMPORT PART, BUT I HAVEN"T YE
 		
 		
 		<!-- when forecast = etc -->
-	<c:choose>
+	<%-- <c:choose>
 		
 		<c:when test = ${dailyWeather.forecast == "snow"} >
 		Bring your snowshoes, Frosty!
@@ -58,13 +66,13 @@ HERE WOULD BE DETAILS FOR THE PARK IF I GOT TO THE IMPORT PART, BUT I HAVEN"T YE
 		<c:otherwise>
 		Enjoy the greatoutdoors, you lovely human.
 		</c:otherwise>
-	</c:choose>
+	</c:choose> --%>
 
 		</c:forEach>
 
 	</table>
 
-</section>
+</section> 
 
 <img src="img/weather/rain.png" alt="test image" style="max-size: 30%; max-height: 30%">
 				

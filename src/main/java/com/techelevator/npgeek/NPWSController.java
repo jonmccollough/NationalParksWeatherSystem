@@ -37,25 +37,24 @@ public class NPWSController {
 	
 	
 	@RequestMapping(path = "/parkDetails", method=RequestMethod.GET)
-	public String showDetailPage(HttpServletRequest request, ModelMap parkHolder, ModelMap mapHolder) {
+	public String showDetailPage(HttpServletRequest request, ModelMap parkHolder ) {
 		String parkCodeId = request.getParameter("id");
 		Park detailPark = parkDAO.getParkByParkCode(parkCodeId);
 		request.setAttribute("codeId", detailPark );
-		return "codeId";
-		
+		return "parkDetails";
+	}
 		
 //	private List<Park> detailParks = parkDAO.getParkByParkCode(parkcode.getParameter("id"));
 //	parkHolder.put("park", detailParks);
 //		
-//	List<Weather> allWeather = weatherDAO.getWeatherByParkCode(parkCode); 
-//	mqpHolder.put("weather", allWeather);
-		
+	private List<Weather> getWeather(HttpServletRequest request, ModelMap weatherHolder){
+	List<Weather>allWeather = weatherDAO.getWeatherByParkCode(request.getParameter("id")); 
+	weatherHolder.put("weather", allWeather);
 	
-	
-		//return "parkDetails";
-		
-		
+		return allWeather;
 	}
+		
+	
 	
 	@RequestMapping("/survey")
 	public String showSurveryPage() {

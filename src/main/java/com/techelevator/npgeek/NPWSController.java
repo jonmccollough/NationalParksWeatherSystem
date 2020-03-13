@@ -28,7 +28,7 @@ public class NPWSController {
 		
 //		List<Weather> allWeather = weatherDAO.getWeatherByParkCode(); 
 //		modelHolder.put("weather", allWeather);
-		
+//		
 		return "parkDetails";
 	}
 	
@@ -37,8 +37,8 @@ public class NPWSController {
 		return "survey";
 	}
 	
-//	@RequestMapping("/surveyResults")
-//	public String showSurveryResultsPage() {
-//		return "surveyResults";
-//	}
+	@RequestMapping("/surveyResults")
+	public String showSurveryResultsPage() {
+		return "surveyResults";
+	}
 }

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
 
@@ -15,76 +15,106 @@
 </head>
 <body>
 
-[IMAGINE A BEAUTIFUL PARK PIC HERE]
-<br>
-HERE WOULD BE DETAILS FOR THE PARK IF I GOT TO THE IMPORT PART, BUT I HAVEN"T YET
-
-<section id = "park details">
-<img src="img/parks/<c:out value = "${fn:toLowerCase(codeId.parkCode)}"/>.jpg" />
-
-${codeId.parkname};
-
-
-</section>
-
-
-
-
-<section id="weather">
-
-<h2 id="weather section">Here is the local weather for the park:</h2>
-
-	<table>
-
-	<c:forEach items="${weatherList}" var= "dailyWeather">
-	<img src="img/weather/<c:out value ="${dailyWeather.forecast}"/>.png" alt="forecast image" 
-	style="size: 30%; max-height: 30%"/>
-
-		<c:out value="${dailyWeather.fiveDayForecastValue}"/>
-		<!-- Temp Switch here -->
-		<c:out value="${dailyWeather.low}"/>
-		<c:out value="${dailyWeather.high}"/>
-		<c:out value="${dailyWeather.forecast}"/>
+	<!-- <section id="park details" > -->
+		<h2>${codeId.parkname} </h2> 
 		
+		<b>"${codeId.inspirationalQuote} "<br>
 		
+		&emsp; &emsp; &emsp;- ${codeId.inspirationalQuoteSource}</b> <br> <br>
 		
-		<!-- when forecast = etc -->
+		<img src="img/parks/<c:out value = "${fn:toLowerCase(codeId.parkCode)}"/>.jpg" style="max-width: 1000px;"/>
+		
+		<section style="display:flex-box"> 
+		 
+		 <br>
+		 
+		State: ${codeId.state} <br>
+		
+		Acreage: ${codeId.acreage} <br>
 
+		Elevation In Feet: ${codeId.elevationInFeet} <br>
+	
+		Miles of Trail: ${codeId.milesOfTrail} <br>
 		
-		<c:if test = "${dailyWeather.forecast = snow}" >
-		Bring your snowshoes, Frosty!
-		</c:if>
+		Number of Campsites: ${codeId.numberOfCampsites}<br>
 		
-		<c:if test = "${dailyWeather.forecast = rain} ">
-		Better bring the famous red raincoat and some galoshes!
-		</c:if>
+		Climate: ${codeId.climate}<br>
+	
+		Year Founded: ${codeId.yearFounded}<br>
 		
-		<c:if test = "${dailyWeather.forecast = thunderstorm}" >
-		ALERT ALERT ALERT! SEEK SHELTER AND AVOID RIDGELINES!
-		</c:if>
+		Annual Visitor Count: ${codeId.annualVisitorCount}<br>
 		
-		<c:if test = "${dailyWeather.forecast = sunny}" >
-		Skin cancer is not a joke. Apply that sunscreen early and often.
-		</c:if>
+		Entry Fee: $ ${codeId.entryFee} <br>
 		
-		<%-- <c:otherwise>
-		Enjoy the greatoutdoors, you lovely human.
-		</c:otherwise> --%>
+		Number of Animal Species: ${codeId.numberOfAnimalSpecies}<br><br>
+		
+		Park Description: <br>
+		${codeId.parkDescription } <br> <br>
+		
+		</section>
+		
+
+	<!-- </section> -->
 
 
-		</c:forEach>
 
-	</table>
 
-</section> 
+	<section id="weather">
 
-<!-- <img src="img/weather/rain.png" alt="test image" style="max-size: 30%; max-height: 30%"> -->
+		<h2 id="weather section">Here is the local weather for the park:</h2>
+
+		<table>
+			
+			<c:forEach items="${weatherList}" var="dailyWeather">
+
+				<td><img
+					src="img/weather/<c:out value ="${dailyWeather.forecast}"/>.png"
+					alt="forecast image" style="max-width: 100px; max-height: 100px;" />
+				</td>
+
+				<td style="width: 100px">Day: <c:out
+						value="${dailyWeather.fiveDayForecastValue}" /> <br>High: <c:out
+						value="${dailyWeather.high}" /> <br>Low: <c:out
+						value="${dailyWeather.low}" /> Forecast: <c:out
+						value="${dailyWeather.forecast}" />
+				</td>
 				
-					
-
+				
+				
+			</c:forEach>
 		
-						    
-      
+			
+
+		</table>
+
+	</section>
+	<section>
+		WEATHER ALERTS: 
+		
+		<c:forEach items="${weatherList}" var="dailyWeather">
+			<c:choose>
+				<%-- <c:when test="${dailyWeather.forecast == snow}">
+				<c:out value="Bring your snowshoes, Frosty!"/>
+				</c:when> --%>
+
+				<c:when test="${dailyWeather.forecast == rain} ">
+				<c:out value="Better bring the famous red raincoat and some galoshes!"/>
+				</c:when>
+
+				<%-- <c:when test="${dailyWeather.forecast == thunderstorm}">
+				<c:out value="ALERT ALERT ALERT! SEEK SHELTER AND AVOID RIDGELINES!"/>
+				</c:when> --%>
+
+				<c:when test="${dailyWeather.forecast == sunny}">
+				<c:out value="Skin cancer is not a joke. Apply that sunscreen early and often." />
+				</c:when>
+
+				<c:otherwise>
+				<c:out value="Enjoy the greatoutdoors, you lovely human."/>
+				</c:otherwise>
+			</c:choose>
+			</c:forEach>
+	</section>
 </body>
 </html>
 

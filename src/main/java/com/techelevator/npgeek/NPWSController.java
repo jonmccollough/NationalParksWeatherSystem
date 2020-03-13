@@ -26,8 +26,8 @@ public class NPWSController {
 	@RequestMapping("/parkDetails")
 	public String showDetailPage(ModelMap modelHolder) {
 		
-		List<Weather> allWeather = weatherDAO.getWeatherByParkCode(); 
-		modelHolder.put("weather", allWeather);
+//		List<Weather> allWeather = weatherDAO.getWeatherByParkCode(); 
+//		modelHolder.put("weather", allWeather);
 		
 		return "parkDetails";
 	}

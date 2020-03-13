@@ -9,10 +9,13 @@ public class SurveyResults {
 	private String parkCode;
 	private String state;
 	private String activityLevel;
+	private int count;
 	
 	@NotBlank(message="Email is required")
 	@Email(message= "Email must be a valid email address")
 	private String emailAddress;
+	private String parkName;
+	
 	
 	public int getSurveyId() {
 		return surveyId;
@@ -44,5 +47,20 @@ public class SurveyResults {
 	public void setActivityLevel(String activityLevel) {
 		this.activityLevel = activityLevel;
 	}
+	public void setCount(int count) {
+		this.count	= count;
+	}
+	
+	public int getCount() {
+		return count;
+	}
+	
+	public void setParkName(String parkName) {
+		this.parkName = parkName;
+	}
+	public String getParkName() {
+		return parkName;
+	}
+	
 
 }

@@ -104,9 +104,7 @@ section p {
 section img {
 	width: 250px;
 	height: 250px;
-	border-color: #FFFFFF;
-	border-width: 8px;
-	border-style: solid;
+	box-shadow: 5px 5px 5px grey;
 }
 
 
@@ -169,7 +167,7 @@ input[type=text], input[type=datetime], textarea {
 }
 
 th, td {
-	color: white;
+	color: black;
 }
 
 table tr:first-child {

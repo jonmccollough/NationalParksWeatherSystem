@@ -20,6 +20,8 @@ import com.techeevator.model.Weather;
 public class JDBCWeatherDAO implements WeatherDAO{
 	
 	private JdbcTemplate jdbcTemplate;
+	
+	@Autowired
 	private WeatherDAO weatherDao;
 	
 	@Autowired
@@ -28,15 +30,11 @@ public class JDBCWeatherDAO implements WeatherDAO{
 	}
 
 	@Override
-	public List<Weather> getWeatherByParkCode(String parkCode) {
-		ArrayList<Weather>weatherList = new ArrayList<>();
-		String sqlGetWeatherByParkCode = "SELECT weather.parkcode, parkname, forecast, fivedayforecastvalue "
-				+ "FROM weather JOIN park ON park.parkcode=weather.parkcode "
-				+ "WHERE park.parkcode = ? "
-				+ "GROUP BY weather.parkcode, parkname, forecast, fivedayforecastvalue "
-				+ "ORDER BY parkcode, fivedayforecastvalue;";
+	public ArrayList<Weather> getWeatherByParkCode(String parkCode) {
+		ArrayList<Weather>weatherList = new ArrayList<Weather>();
+		String sqlGetWeatherByParkCode = "SELECT * FROM weather WHERE parkcode = ? ORDER BY parkcode, fivedayforecastvalue;";
 		
-		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetWeatherByParkCode);
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetWeatherByParkCode, parkCode);
 		while (results.next()) {
 			Weather allWeather = mapRowToWeather(results);
 			weatherList.add(allWeather);
@@ -44,7 +42,8 @@ public class JDBCWeatherDAO implements WeatherDAO{
 		
 		return weatherList;
 	}
-	private Weather mapRowToWeather(SqlRowSet results) {
+	
+	public Weather mapRowToWeather(SqlRowSet results) {
 		Weather allWeather = new Weather();
 		allWeather.setParkCode(results.getString("parkcode"));
 		allWeather.setFiveDayForecastValue(results.getInt("fivedayforecastvalue"));
@@ -54,7 +53,6 @@ public class JDBCWeatherDAO implements WeatherDAO{
 		
 		return allWeather;
 	}
-		
-		
+
 }
 

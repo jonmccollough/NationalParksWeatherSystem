@@ -21,6 +21,10 @@ HERE WOULD BE DETAILS FOR THE PARK IF I GOT TO THE IMPORT PART, BUT I HAVEN"T YE
 
 <section id = "park details">
 <img src="img/parks/<c:out value = "${fn:toLowerCase(codeId.parkCode)}"/>.jpg" />
+
+${codeId.parkname};
+
+
 </section>
 
 
@@ -32,11 +36,11 @@ HERE WOULD BE DETAILS FOR THE PARK IF I GOT TO THE IMPORT PART, BUT I HAVEN"T YE
 
 	<table>
 
-	<c:forEach items="${weather}" var= "dailyWeather">
-	<img src="img/weather/${weather.forecast}.png" alt="forecast image" 
+	<c:forEach items="${weatherList}" var= "dailyWeather">
+	<img src="img/weather/${dailyweather.forecast}.png" alt="forecast image" 
 	style="max-size: 30%; max-height: 30%">
 
-		<c:out value="${dailyWeather.fivedayforecastvalue}"/>
+		<c:out value="${dailyWeather.fiveDayForecastValue}"/>
 		<!-- Temp Switch here -->
 		<c:out value="${dailyWeather.low}"/>
 		<c:out value="${dailyWeather.high}"/>

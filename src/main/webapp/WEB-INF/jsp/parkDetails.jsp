@@ -35,6 +35,7 @@ HERE WOULD BE DETAILS FOR THE PARK IF I GOT TO THE IMPORT PART, BUT I HAVEN"T YE
 		<c:out value="${dailyWeather.forecast}"/>
 		
 		
+		
 		<!-- when forecast = etc -->
 	<c:choose>
 		

@@ -24,7 +24,8 @@
 		<c:out value="${singlePark.parkDescription}" />
 		</td>
 		</tr>
-
+		<input = "${singlePark.parkCode} type="text" name="parkcode" />
+		<input type="submit" />
 		</c:forEach>
 
 	</table>

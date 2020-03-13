@@ -8,7 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.techeevator.model.Park;
 import com.techeevator.model.Weather;
+import com.techelevator.npgeek.DAO.ParkDao;
 import com.techelevator.npgeek.DAO.WeatherDAO;
 
 @Controller
@@ -17,8 +19,12 @@ public class NPWSController {
 	@Autowired
 	private WeatherDAO weatherDAO;
 	
+	@Autowired ParkDao parkDAO;
+	
 	@RequestMapping("/")
-	public String displayHomePage() {
+	public String displayHomePage(ModelMap modelHolder) {
+		List<Park> allParks = parkDAO.getAllParks(); 
+		modelHolder.put("park", allParks);
 		return "homePage";
 	}
 	

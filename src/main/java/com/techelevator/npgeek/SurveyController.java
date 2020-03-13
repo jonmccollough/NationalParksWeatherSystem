@@ -49,7 +49,7 @@ public class SurveyController {
 
 	@RequestMapping(path = "/surveyResults", method = RequestMethod.GET)
 	public String showSurveyResults(Model modelHolder) {
-		List<SurveyResults> surveyList = surveyDao.getAllSurvey();
+		List<SurveyResults> surveyList = surveyDao.getSurveyResults();
 		modelHolder.addAttribute("surveyList", surveyList);
 		return "surveyResults";
 	}

@@ -5,7 +5,7 @@ import com.techeevator.model.SurveyResults;
 
 public interface SurveyDAO {
 	
-	public List <SurveyResults> getAllSurvey ();
+	public List <SurveyResults> getSurveyResults ();
 
 	public void addSurvey(SurveyResults thisSurvey);
 	

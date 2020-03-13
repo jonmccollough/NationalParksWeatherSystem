@@ -15,15 +15,17 @@
 
 <section>
 	<h1 id="surveyResultLeaders">The Top Parks</h1>
-	
+	<table>
 	<c:forEach items="${surveyList}" var="survey">
+	
 		
 		<c:out value="${survey.parkCode}" />
-		
+		<c:out value="${survey.parkName}" />
+		<c:out value="${survey.count}" />
 		<img src="img/parks/<c:out value="${fn:toLowerCase(survey.parkCode)}"/>.jpg">
 		<br>
 	</c:forEach>
-
+	</table>
 </section>
 
 

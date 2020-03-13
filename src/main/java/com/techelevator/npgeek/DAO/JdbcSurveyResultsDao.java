@@ -28,11 +28,13 @@ public class JdbcSurveyResultsDao implements SurveyDAO {
 		
 		String sqlGetAllSurvey = "SELECT COUNT(survey_result.parkcode), survey_result.parkcode, parkname " + 
 								"FROM survey_result JOIN park ON park.parkcode=survey_result.parkcode " +
-								"GROUP BY survey_result.parkcode, parkname ORDER BY count DESC;";
+								"GROUP BY survey_result.parkcode, parkname ORDER BY count DESC, parkname;";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetAllSurvey);
 		while(results.next()) {
 			SurveyResults survey = new SurveyResults();
 			survey.setParkCode(results.getString("parkcode"));
+			survey.setCount(results.getInt("count"));
+			survey.setParkName(results.getString("parkname"));
 			surveyResults.add(survey);
 		}
 		return surveyResults;

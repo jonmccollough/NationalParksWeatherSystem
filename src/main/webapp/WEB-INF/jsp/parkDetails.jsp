@@ -91,21 +91,21 @@
 	<section>
 		WEATHER ALERTS: 
 		
-		<c:forEach items="${weatherList}" var="dailyWeather">
+		<c:forEach items="${weatherList}" var="dailyWeather2">
 			<c:choose>
-				<%-- <c:when test="${dailyWeather.forecast == snow}">
+				<c:when test="${dailyWeather2.forecast == 'snow'}">
 				<c:out value="Bring your snowshoes, Frosty!"/>
-				</c:when> --%>
+				</c:when>
 
-				<c:when test="${dailyWeather.forecast == rain} ">
+				<c:when test="${dailyWeather2.forecast == 'rain'}">
 				<c:out value="Better bring the famous red raincoat and some galoshes!"/>
 				</c:when>
 
-				<%-- <c:when test="${dailyWeather.forecast == thunderstorm}">
+				<c:when test="${dailyWeather2.forecast == 'thunderstorms'}">
 				<c:out value="ALERT ALERT ALERT! SEEK SHELTER AND AVOID RIDGELINES!"/>
-				</c:when> --%>
+				</c:when>
 
-				<c:when test="${dailyWeather.forecast == sunny}">
+				<c:when test="${dailyWeather2.forecast == 'sunny'}">
 				<c:out value="Skin cancer is not a joke. Apply that sunscreen early and often." />
 				</c:when>
 
@@ -113,7 +113,7 @@
 				<c:out value="Enjoy the greatoutdoors, you lovely human."/>
 				</c:otherwise>
 			</c:choose>
-			</c:forEach>
+		</c:forEach>
 	</section>
 </body>
 </html>

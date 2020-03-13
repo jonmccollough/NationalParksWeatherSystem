@@ -18,6 +18,7 @@ import com.techeevator.model.Weather;
 
 @Component
 public class JDBCWeatherDAO implements WeatherDAO{
+	
 	private JdbcTemplate jdbcTemplate;
 	private WeatherDAO weatherDao;
 	
@@ -27,7 +28,7 @@ public class JDBCWeatherDAO implements WeatherDAO{
 	}
 
 	@Override
-	public List<Weather> getWeatherByParkCode() {
+	public List<Weather> getWeatherByParkCode(String parkCode) {
 		ArrayList<Weather>weatherList = new ArrayList<>();
 		String sqlGetWeatherByParkCode = "SELECT * FROM weather";
 		

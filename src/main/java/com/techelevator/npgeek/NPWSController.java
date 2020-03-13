@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.techeevator.model.Park;
+import com.techeevator.model.SurveyResults;
 import com.techeevator.model.Weather;
 import com.techelevator.npgeek.DAO.ParkDao;
 import com.techelevator.npgeek.DAO.WeatherDAO;
@@ -37,22 +38,31 @@ public class NPWSController {
 	
 	
 	@RequestMapping(path = "/parkDetails", method=RequestMethod.GET)
-	public String showDetailPage(HttpServletRequest request, ModelMap parkHolder ) {
+	public String showDetailPage(HttpServletRequest request, ModelMap weatherHolder ) {
 		String parkCodeId = request.getParameter("id");
+		
 		Park detailPark = parkDAO.getParkByParkCode(parkCodeId);
 		request.setAttribute("codeId", detailPark );
+		
+		
+		List<Weather> weatherList = weatherDAO.getWeatherByParkCode(parkCodeId);
+		weatherHolder.put("weatherList", weatherList);
+		
+		
 		return "parkDetails";
 	}
 		
+	
+	
 //	private List<Park> detailParks = parkDAO.getParkByParkCode(parkcode.getParameter("id"));
 //	parkHolder.put("park", detailParks);
 //		
-	private List<Weather> getWeather(HttpServletRequest request, ModelMap weatherHolder){
-	List<Weather>allWeather = weatherDAO.getWeatherByParkCode(request.getParameter("id")); 
-	weatherHolder.put("weather", allWeather);
-	
-		return allWeather;
-	}
+//	public List<Weather> getWeather(HttpServletRequest request, ModelMap weatherHolder){
+//	List<Weather>allWeather = weatherDAO.getWeatherByParkCode(request.getParameter("id")); 
+//	weatherHolder.put("weather", allWeather);
+//	
+//		return allWeather;
+//	}
 		
 	
 	

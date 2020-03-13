@@ -17,7 +17,7 @@
 				
 					<tr>
 						<td> <a href="<c:url value="parkDetails?id=${(singlePark.parkCode)}" />">
-						<img src="img/parks/<c:out value = "${fn:toLowerCase(singlePark.parkCode)}"/>.jpg" />
+						<img src="img/parks/<c:out value = "${fn:toLowerCase(singlePark.parkCode)}"/>.jpg" style=";" />
 						</a>
 						</td>
 						<td>

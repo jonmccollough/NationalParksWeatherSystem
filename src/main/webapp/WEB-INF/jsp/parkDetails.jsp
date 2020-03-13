@@ -37,8 +37,8 @@ ${codeId.parkname};
 	<table>
 
 	<c:forEach items="${weatherList}" var= "dailyWeather">
-	<img src="img/weather/${dailyweather.forecast}.png" alt="forecast image" 
-	style="max-size: 30%; max-height: 30%">
+	<img src="img/weather/<c:out value ="${dailyWeather.forecast}"/>.png" alt="forecast image" 
+	style="size: 30%; max-height: 30%"/>
 
 		<c:out value="${dailyWeather.fiveDayForecastValue}"/>
 		<!-- Temp Switch here -->
@@ -49,28 +49,28 @@ ${codeId.parkname};
 		
 		
 		<!-- when forecast = etc -->
-	<%-- <c:choose>
+
 		
-		<c:when test = ${dailyWeather.forecast == "snow"} >
+		<c:if test = "${dailyWeather.forecast = snow}" >
 		Bring your snowshoes, Frosty!
-		</c:when>
+		</c:if>
 		
-		<c:when test = ${dailyWeather.forecast == "rain"} >
+		<c:if test = "${dailyWeather.forecast = rain} ">
 		Better bring the famous red raincoat and some galoshes!
-		</c:when>
+		</c:if>
 		
-		<c:when test = ${dailyWeather.forecast == "thunderstorm"} >
+		<c:if test = "${dailyWeather.forecast = thunderstorm}" >
 		ALERT ALERT ALERT! SEEK SHELTER AND AVOID RIDGELINES!
-		</c:when>
+		</c:if>
 		
-		<c:when test = ${dailyWeather.forecast == "sunny"} >
+		<c:if test = "${dailyWeather.forecast = sunny}" >
 		Skin cancer is not a joke. Apply that sunscreen early and often.
-		</c:when>
+		</c:if>
 		
-		<c:otherwise>
+		<%-- <c:otherwise>
 		Enjoy the greatoutdoors, you lovely human.
-		</c:otherwise>
-	</c:choose> --%>
+		</c:otherwise> --%>
+
 
 		</c:forEach>
 
@@ -78,7 +78,7 @@ ${codeId.parkname};
 
 </section> 
 
-<img src="img/weather/rain.png" alt="test image" style="max-size: 30%; max-height: 30%">
+<!-- <img src="img/weather/rain.png" alt="test image" style="max-size: 30%; max-height: 30%"> -->
 				
 					
 

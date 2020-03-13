@@ -1,4 +1,4 @@
-x`package com.techeevator.model;
+package com.techeevator.model;
 
 public class Weather {
 	

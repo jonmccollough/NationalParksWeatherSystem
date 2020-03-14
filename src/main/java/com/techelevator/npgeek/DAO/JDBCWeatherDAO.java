@@ -39,7 +39,6 @@ public class JDBCWeatherDAO implements WeatherDAO{
 			Weather allWeather = mapRowToWeather(results);
 			weatherList.add(allWeather);
 		}
-		
 		return weatherList;
 	}
 	
@@ -50,9 +49,9 @@ public class JDBCWeatherDAO implements WeatherDAO{
 		allWeather.setLow(results.getInt("low"));
 		allWeather.setHigh(results.getInt("high"));
 		allWeather.setForecast(results.getString("forecast"));
-		
+		allWeather.setLowC((results.getInt("low")-32)*5/9);
+		allWeather.setHighC((results.getInt("high")-32)*5/9);
 		return allWeather;
 	}
-
 }
 

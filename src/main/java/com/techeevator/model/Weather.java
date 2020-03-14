@@ -1,5 +1,7 @@
 package com.techeevator.model;
 
+import java.util.List;
+
 public class Weather {
 	
 	private String parkCode;
@@ -7,6 +9,8 @@ public class Weather {
 	private int low;
 	private int high;
 	private String forecast;
+	private int lowC;
+	private int highC;
 	
 	
 	public String getParkCode() {
@@ -40,7 +44,18 @@ public class Weather {
 		this.forecast = forecast;
 	}
 	
-	
+	public int getLowC() {
+		return lowC;
+	}
+	public void setLowC(int lowC) {
+		this.lowC = lowC;
+	}
+	public int getHighC() {
+		return highC;
+	}
+	public void setHighC(int highC) {
+		this.highC = highC;
+	}
 	
 	
 }

@@ -18,9 +18,7 @@ public class Park {
 	private int entryFee;
 	private int numberOfAnimalSpecies;
 	
-	
-	
-	
+
 	//Park getter and setter
 	public String getParkCode() {
 		return parkCode;

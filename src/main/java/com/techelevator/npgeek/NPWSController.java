@@ -34,38 +34,37 @@ public class NPWSController {
 		return "homePage";
 	}
 	
-	
-	
-	
 	@RequestMapping(path = "/parkDetails", method=RequestMethod.GET)
-	public String showDetailPage(HttpServletRequest request, ModelMap weatherHolder ) {
+	public String showDetailPage(HttpServletRequest request, HttpSession session, ModelMap weatherHolder ) {
 		String parkCodeId = request.getParameter("id");
 		
 		Park detailPark = parkDAO.getParkByParkCode(parkCodeId);
 		request.setAttribute("codeId", detailPark );
 		
-		
 		List<Weather> weatherList = weatherDAO.getWeatherByParkCode(parkCodeId);
 		weatherHolder.put("weatherList", weatherList);
 		
-		
 		return "parkDetails";
 	}
+	
+	@RequestMapping(path={"/parkDetails"}, method=RequestMethod.POST)
+	public String switchTempConversion(HttpServletRequest request, HttpSession session, @RequestParam boolean tempConvert, ModelMap weatherMap) {
+		String parkCodeId = request.getParameter("id");
+		Park detailPark = parkDAO.getParkByParkCode(parkCodeId);
+		request.setAttribute("codeId", detailPark );
 		
-	
-	
-//	private List<Park> detailParks = parkDAO.getParkByParkCode(parkcode.getParameter("id"));
-//	parkHolder.put("park", detailParks);
-//		
-//	public List<Weather> getWeather(HttpServletRequest request, ModelMap weatherHolder){
-//	List<Weather>allWeather = weatherDAO.getWeatherByParkCode(request.getParameter("id")); 
-//	weatherHolder.put("weather", allWeather);
-//	
-//		return allWeather;
-//	}
+		List<Weather> weatherList = weatherDAO.getWeatherByParkCode(parkCodeId);
+		request.setAttribute("weather", weatherList);
+		request.setAttribute("park", parkDAO.getParkByParkCode(parkCodeId));
 		
-	
-	
+		if(session.getAttribute("tempConvert").equals("F") || session.getAttribute("tempConvert")== null){
+			session.setAttribute("tempConvert", "C");
+		}else{
+			session.setAttribute("tempConvert", "F");
+		}
+		return "redirect:/parkDetails?id=" + parkCodeId;
+	}
+
 	@RequestMapping("/survey")
 	public String showSurveryPage() {
 		return "survey";
